@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/migrations/202410311438_init.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/migrations/202410311445_insert_dummy.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/migrations/202411051115_delete.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/io/github/demo/DAO/UserDAO.java" dialect="GenericSQL" />
+  </component>
+</project>
