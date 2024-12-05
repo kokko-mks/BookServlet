@@ -19,6 +19,7 @@ public class LoginServlet extends HttpServlet {
     @Serial
     private static final long serialVersionUID = 1L;
 
+    //フォームから送信されたPOSTリクエストを処理
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         String pass = request.getParameter("pass");
@@ -26,16 +27,20 @@ public class LoginServlet extends HttpServlet {
         Login login = new Login(name, pass);
 
         try {
+            //UserDAO クラスの findByLogin メソッドを呼び出し
             User loginUser = new UserDAO().findByLogin(login);
 
+            //Login オブジェクトに対応するユーザー情報をデータベースから取得
             if (loginUser != null
                     && loginUser.getName().equals(name)
                     && loginUser.getPassword().equals(pass)) {
 
+                //ユーザー名をリクエストにセット、LoginSuccess.jspにフォワード、ログイン成功画面へ(LoginSuccess.jsp)
                 request.setAttribute("name", loginUser.getName());
                 RequestDispatcher dispatcher = request.getRequestDispatcher("./LoginSuccess.jsp");
                 dispatcher.forward(request, response);
 
+                //LoginFalse.jsp にフォワード、ログイン失敗画面へ(LoginFalse.jsp)
             } else {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("./LoginFalse.jsp");
                 dispatcher.forward(request, response);

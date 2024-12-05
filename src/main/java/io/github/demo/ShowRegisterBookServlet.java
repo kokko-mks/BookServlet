@@ -15,8 +15,11 @@ public class ShowRegisterBookServlet extends HttpServlet {
     @Serial
     private static final long serialVersionUID = 1L;
 
+    //getリクエストの処理
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
+
+        //RegisterBook.jspへリクエストを転送
         RequestDispatcher dispatcher = request.getRequestDispatcher("./RegisterBook.jsp");
         dispatcher.forward(request,response);
     }
